@@ -7,18 +7,13 @@ public class ClientEx {
 
     public static void main(String[] arsg) {
 
-        ServerSocket server = null;
         Socket socket = null;
         BufferedReader in = null;
         BufferedWriter out = null;
         Scanner sc = new Scanner(System.in);
 
         try {
-            server = new ServerSocket(9999);
-            System.out.println("연결 대기중....");
-
-            socket = server.accept();
-            System.out.println("연결 되었습니다...");
+            socket = new Socket("localhost", 9999);
 
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -48,8 +43,6 @@ public class ClientEx {
                 out.close();
                 in.close();
                 socket.close();
-                server.accept();
-
             }catch (IOException e){
                 e.printStackTrace();
             }
