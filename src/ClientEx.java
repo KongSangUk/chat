@@ -22,7 +22,7 @@ public class ClientEx {
                 System.out.print("보내기 >>");
                 String outMag = sc.nextLine();
 
-                if (outMag.equalsIgnoreCase("bey")) {
+                if (outMag.equalsIgnoreCase("bye")) {
                     out.write(outMag + "\n");
                     out.flush();
                     break;
