@@ -19,25 +19,26 @@ public class ClientEx {
             out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
             while (true){
-                String inMsg = in.readLine();
-                if (inMsg.equalsIgnoreCase("bey")) {
-                    System.out.println("클라이언트가 나갔습니다.");
+                System.out.print("보내기 >>");
+                String outMag = sc.nextLine();
+
+                if (outMag.equalsIgnoreCase("bey")) {
+                    out.write(outMag + "\n");
+                    out.flush();
                     break;
                 }
 
                 // 성장 메세지 경우
-                System.out.println("클라이언트 : " + inMsg);
-
-                System.out.print("보내기 >>");
-                String outMag = sc.nextLine();
                 out.write(outMag + "\n");
                 out.flush();
+
+                String inMsg = in.readLine();
+                System.out.println("서버 >> " + inMsg);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-
             try {
                 sc.close();
                 out.close();
