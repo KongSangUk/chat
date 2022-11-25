@@ -7,10 +7,12 @@ public class ClientEx {
 
     public static void main(String[] arsg) {
 
+        // 열어준다.
         Socket socket = null;
         BufferedReader in = null;
         BufferedWriter out = null;
         Scanner sc = new Scanner(System.in);
+
 
         try {
             socket = new Socket("localhost", 9999);
@@ -28,7 +30,7 @@ public class ClientEx {
                     break;
                 }
 
-                // 성장 메세지 경우
+                // 정상 메세지 경우
                 out.write(outMag + "\n");
                 out.flush();
 
@@ -38,7 +40,10 @@ public class ClientEx {
 
         } catch (IOException e) {
             e.printStackTrace();
+
         } finally {
+
+            // 작성한 역순으로 close 닫아준다.
             try {
                 sc.close();
                 out.close();
