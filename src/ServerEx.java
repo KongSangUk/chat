@@ -13,6 +13,7 @@ public class ServerEx {
         BufferedWriter out = null;
         Scanner sc = new Scanner(System.in);
 
+
         try {
             server = new ServerSocket(9999);
             System.out.println("연결 대기중....");
